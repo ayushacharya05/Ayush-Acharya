@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Themes By Ayush</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #1e1b4b 0%, var(--bg-primary) 100%);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 12px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 60px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Themes Grid */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .theme-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15);
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background-color: #111827;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .theme-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.5s ease;
+        }
+
+        .theme-card:hover .theme-image {
+            transform: scale(1.03);
+        }
+
+        .theme-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .theme-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .theme-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .view-btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            margin-top: auto;
+        }
+
+        .theme-card:hover .view-btn {
+            background-color: var(--accent-color);
+            color: #0f172a;
+        }
+
+        /* Demo Preview Screen Area */
+        .preview-section {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+            display: none;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            background-color: var(--bg-secondary);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-title {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .preview-actions a {
+            color: var(--text-main);
+            text-decoration: none;
+            background-color: #334155;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .preview-actions a:hover {
+            background-color: #475569;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            background: #fff;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 640px) {
+            header h1 { font-size: 2.2rem; }
+            .iframe-container { height: 450px; }
+            .preview-header { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WordPress Themes By Ayush</h1>
+        <p>Beautiful, lightweight, and high-performance themes crafted for the modern web.</p>
+    </header>
+
+    <div class="container">
+        <!-- Grid Items Grid -->
+        <div class="themes-grid">
+            
+            <!-- Theme 1: Evoke -->
+            <div class="theme-card" onclick="loadDemo('Evoke by Ayush', 'https://ayushacharya5.com.np/projects/wordpresstheme/evoke/')">
+                <div class="image-container">
+                    <img src="https://github.com/ayushacharya05/Evokebyayush/blob/main/screenshot.gif?raw=true" alt="Evoke by Ayush Screenshot" class="theme-image">
+                </div>
+                <div class="theme-info">
+                    <h2 class="theme-title">Evoke by Ayush</h2>
+                    <p class="theme-description">A beautifully crafted WordPress Blog Theme with a modern interface, lightweight performance, responsive design, and elegant typography. Perfect for blogs, magazines, personal websites, and creators.</p>
+                    <span class="view-btn">View Live Demo</span>
+                </div>
+            </div>
+
+            <!-- Theme 2: Edusphere -->
+            <div class="theme-card" onclick="loadDemo('Edusphere by Ayush', 'https://evoke.ayushacharya5.com.np/index.html')">
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/ayushacharya05/Edusphere-by-ayush/refs/heads/main/screenshot.png" alt="Edusphere by Ayush Screenshot" class="theme-image">
+                </div>
+                <div class="theme-info">
+                    <h2 class="theme-title">Edusphere by Ayush</h2>
+                    <p class="theme-description">A modern responsive WordPress theme for schools, colleges, universities and e-learning platforms with clean design, SEO optimization and excellent performance.</p>
+                    <span class="view-btn">View Live Demo</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Embedded Interactive Preview Area -->
+        <div class="preview-section" id="previewZone">
+            <div class="preview-header">
+                <span class="preview-title" id="activeThemeTitle">Previewing: Theme</span>
+                <div class="preview-actions">
+                    <a id="externalLink" href="#" target="_blank">Open in New Tab ↗</a>
+                </div>
+            </div>
+            <div class="iframe-container">
+                <iframe id="previewFrame" src="" title="Theme Live Preview"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadDemo(themeName, url) {
+            const previewZone = document.getElementById('previewZone');
+            const previewFrame = document.getElementById('previewFrame');
+            const activeThemeTitle = document.getElementById('activeThemeTitle');
+            const externalLink = document.getElementById('externalLink');
+
+            // Set content details
+            activeThemeTitle.innerText = `Previewing: ${themeName}`;
+            externalLink.href = url;
+            previewFrame.src = url;
+
+            // Make the container zone visible smoothly
+            previewZone.style.display = 'block';
+            
+            // Scroll frame into focus smoothly
+            previewZone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
