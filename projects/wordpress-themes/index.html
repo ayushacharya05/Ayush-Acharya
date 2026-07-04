@@ -33,7 +33,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Subtle glowing background orbs for modern UI depth */
         body::before {
             content: "";
             position: absolute;
@@ -90,7 +89,6 @@
             padding: 0 24px 100px;
         }
 
-        /* High UX Layout Showcase */
         .themes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -106,7 +104,6 @@
             header h1 { font-size: 2.3rem; }
         }
 
-        /* Clickable Card Link Wrapper */
         .theme-link-wrapper {
             text-decoration: none;
             color: inherit;
@@ -127,7 +124,6 @@
             position: relative;
         }
 
-        /* Card Hover States */
         .theme-link-wrapper:hover .theme-card {
             transform: translateY(-8px);
             border-color: var(--border-hover);
@@ -135,27 +131,31 @@
             background-color: var(--bg-card-hover);
         }
 
+        /* Upgraded Viewport to cleanly display complete images */
         .image-viewport {
             position: relative;
             width: 100%;
-            height: 250px;
-            background-color: #070a12;
-            overflow: hidden;
+            background-color: #0d1322;
+            padding: 16px; /* Adds space around the full image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            aspect-ratio: 16 / 10; /* Ensures a consistent, beautiful design shape */
         }
 
+        /* Object-fit tweak to preserve entire graphic asset without scaling crop */
         .theme-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            object-fit: contain; 
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .theme-link-wrapper:hover .theme-image {
-            transform: scale(1.04);
+            transform: scale(1.03);
         }
 
-        /* Hover Overlay Indicator */
         .card-overlay {
             position: absolute;
             top: 0;
@@ -263,7 +263,7 @@
     </header>
 
     <div class="container">
-        <div class="themes-grid">
+        <div class="themes-grid">                        
             
             <!-- Theme 1: Evoke -->
             <a class="theme-link-wrapper" href="https://evoke.ayushacharya5.com.np/" target="_blank" rel="noopener">
@@ -272,7 +272,7 @@
                         <img src="https://github.com/ayushacharya05/Evokebyayush/blob/main/screenshot.gif?raw=true" alt="Evoke by Ayush UI Design" class="theme-image">
                         <div class="card-overlay">
                             <div class="overlay-badge">
-                                Visit Theme Page 
+                                Visit Theme Page
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
                             </div>
                         </div>
@@ -296,7 +296,7 @@
                         <img src="https://raw.githubusercontent.com/ayushacharya05/Edusphere-by-ayush/refs/heads/main/screenshot.png" alt="Edusphere by Ayush UI Design" class="theme-image">
                         <div class="card-overlay">
                             <div class="overlay-badge">
-                                Visit Theme Page 
+                                Visit Theme Page
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
                             </div>
                         </div>
