@@ -6,89 +6,141 @@
     <title>WordPress Themes By Ayush</title>
     <style>
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --accent-color: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
+            --bg-main: #0b0f19;
+            --bg-card: #131a2c;
+            --bg-card-hover: #1b253f;
+            --accent: #38bdf8;
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(56, 189, 248, 0.4);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
             line-height: 1.6;
-            padding-bottom: 60px;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle glowing background orbs for modern UI depth */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            left: -100px;
+            z-index: -1;
         }
 
         header {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            padding: 60px 20px 40px;
-            background: linear-gradient(180deg, #1e1b4b 0%, var(--bg-primary) 100%);
+            padding: 80px 24px 50px;
+        }
+
+        .author-badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            letter-spacing: -0.05em;
-            margin-bottom: 12px;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 60px;
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px 100px;
         }
 
-        /* Themes Grid */
+        /* High UX Layout Showcase */
         .themes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 36px;
+        }
+
+        @media (max-width: 880px) {
+            .themes-grid {
+                grid-template-columns: 1fr;
+                max-width: 540px;
+                margin: 0 auto;
+            }
+            header h1 { font-size: 2.3rem; }
+        }
+
+        /* Clickable Card Link Wrapper */
+        .theme-link-wrapper {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            outline: none;
         }
 
         .theme-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
 
-        .theme-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15);
+        /* Card Hover States */
+        .theme-link-wrapper:hover .theme-card {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.08);
+            background-color: var(--bg-card-hover);
         }
 
-        .image-container {
+        .image-viewport {
             position: relative;
             width: 100%;
-            height: 220px;
-            background-color: #111827;
+            height: 250px;
+            background-color: #070a12;
             overflow: hidden;
-            border-bottom: 1px solid var(--border-color);
         }
 
         .theme-image {
@@ -96,184 +148,173 @@
             height: 100%;
             object-fit: cover;
             object-position: top center;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .theme-card:hover .theme-image {
-            transform: scale(1.03);
+        .theme-link-wrapper:hover .theme-image {
+            transform: scale(1.04);
         }
 
-        .theme-info {
-            padding: 24px;
+        /* Hover Overlay Indicator */
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 15, 25, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        .theme-link-wrapper:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .overlay-badge {
+            background: #ffffff;
+            color: #0b0f19;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-meta {
+            padding: 28px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
+        .tag-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
         .theme-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--text-main);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .theme-title::after {
+            content: "→";
+            font-weight: 300;
+            color: var(--text-secondary);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .theme-link-wrapper:hover .theme-title::after {
+            transform: translateX(4px);
+            color: var(--accent);
         }
 
         .theme-description {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             font-size: 0.95rem;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 24px;
             flex-grow: 1;
         }
 
-        .view-btn {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            text-align: center;
-            padding: 10px 20px;
-            border-radius: 6px;
+        .action-indicator {
+            font-size: 0.95rem;
             font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.2s;
-            margin-top: auto;
-        }
-
-        .theme-card:hover .view-btn {
-            background-color: var(--accent-color);
-            color: #0f172a;
-        }
-
-        /* Demo Preview Screen Area */
-        .preview-section {
-            margin-top: 60px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 40px;
-            display: none;
-        }
-
-        .preview-header {
+            color: var(--accent);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
-            background-color: var(--bg-secondary);
-            padding: 15px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .preview-title {
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .preview-actions a {
-            color: var(--text-main);
-            text-decoration: none;
-            background-color: #334155;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .preview-actions a:hover {
-            background-color: #475569;
-        }
-
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 700px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            background: #fff;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        @media (max-width: 640px) {
-            header h1 { font-size: 2.2rem; }
-            .iframe-container { height: 450px; }
-            .preview-header { flex-direction: column; gap: 12px; text-align: center; }
+            gap: 4px;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="author-badge">WordPress Developer Portfolio</div>
         <h1>WordPress Themes By Ayush</h1>
-        <p>Beautiful, lightweight, and high-performance themes crafted for the modern web.</p>
+        <p>Explore high-performance, beautifully interactive, and completely responsive ecosystem themes built intentionally for modern creators and institutions.</p>
     </header>
 
     <div class="container">
-        <!-- Grid Items Grid -->
         <div class="themes-grid">
             
             <!-- Theme 1: Evoke -->
-            <div class="theme-card" onclick="loadDemo('Evoke by Ayush', 'https://ayushacharya5.com.np/projects/wordpresstheme/evoke/')">
-                <div class="image-container">
-                    <img src="https://github.com/ayushacharya05/Evokebyayush/blob/main/screenshot.gif?raw=true" alt="Evoke by Ayush Screenshot" class="theme-image">
+            <a class="theme-link-wrapper" href="https://evoke.ayushacharya5.com.np/" target="_blank" rel="noopener">
+                <div class="theme-card">
+                    <div class="image-viewport">
+                        <img src="https://github.com/ayushacharya05/Evokebyayush/blob/main/screenshot.gif?raw=true" alt="Evoke by Ayush UI Design" class="theme-image">
+                        <div class="card-overlay">
+                            <div class="overlay-badge">
+                                Visit Theme Page 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theme-meta">
+                        <div class="tag-row">
+                            <span class="tech-tag">Modern Blog</span>
+                            <span class="tech-tag">Lightweight</span>
+                        </div>
+                        <h2 class="theme-title">Evoke by Ayush</h2>
+                        <p class="theme-description">A beautifully crafted WordPress Blog Theme with a modern interface, lightweight performance, responsive design, and elegant typography. Perfect for blogs, magazines, personal websites, and creators.</p>
+                        <div class="action-indicator">View full details and layout options</div>
+                    </div>
                 </div>
-                <div class="theme-info">
-                    <h2 class="theme-title">Evoke by Ayush</h2>
-                    <p class="theme-description">A beautifully crafted WordPress Blog Theme with a modern interface, lightweight performance, responsive design, and elegant typography. Perfect for blogs, magazines, personal websites, and creators.</p>
-                    <span class="view-btn">View Live Demo</span>
-                </div>
-            </div>
+            </a>
 
             <!-- Theme 2: Edusphere -->
-            <div class="theme-card" onclick="loadDemo('Edusphere by Ayush', 'https://evoke.ayushacharya5.com.np/index.html')">
-                <div class="image-container">
-                    <img src="https://raw.githubusercontent.com/ayushacharya05/Edusphere-by-ayush/refs/heads/main/screenshot.png" alt="Edusphere by Ayush Screenshot" class="theme-image">
+            <a class="theme-link-wrapper" href="https://edusphere.ayushacharya5.com.np/" target="_blank" rel="noopener">
+                <div class="theme-card">
+                    <div class="image-viewport">
+                        <img src="https://raw.githubusercontent.com/ayushacharya05/Edusphere-by-ayush/refs/heads/main/screenshot.png" alt="Edusphere by Ayush UI Design" class="theme-image">
+                        <div class="card-overlay">
+                            <div class="overlay-badge">
+                                Visit Theme Page 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theme-meta">
+                        <div class="tag-row">
+                            <span class="tech-tag">Education</span>
+                            <span class="tech-tag">SEO Optimized</span>
+                        </div>
+                        <h2 class="theme-title">Edusphere by Ayush</h2>
+                        <p class="theme-description">A modern responsive WordPress theme for schools, colleges, universities and e-learning platforms with clean design, SEO optimization and excellent performance.</p>
+                        <div class="action-indicator">View full details and layout options</div>
+                    </div>
                 </div>
-                <div class="theme-info">
-                    <h2 class="theme-title">Edusphere by Ayush</h2>
-                    <p class="theme-description">A modern responsive WordPress theme for schools, colleges, universities and e-learning platforms with clean design, SEO optimization and excellent performance.</p>
-                    <span class="view-btn">View Live Demo</span>
-                </div>
-            </div>
+            </a>
 
-        </div>
-
-        <!-- Embedded Interactive Preview Area -->
-        <div class="preview-section" id="previewZone">
-            <div class="preview-header">
-                <span class="preview-title" id="activeThemeTitle">Previewing: Theme</span>
-                <div class="preview-actions">
-                    <a id="externalLink" href="#" target="_blank">Open in New Tab ↗</a>
-                </div>
-            </div>
-            <div class="iframe-container">
-                <iframe id="previewFrame" src="" title="Theme Live Preview"></iframe>
-            </div>
         </div>
     </div>
 
-    <script>
-        function loadDemo(themeName, url) {
-            const previewZone = document.getElementById('previewZone');
-            const previewFrame = document.getElementById('previewFrame');
-            const activeThemeTitle = document.getElementById('activeThemeTitle');
-            const externalLink = document.getElementById('externalLink');
-
-            // Set content details
-            activeThemeTitle.innerText = `Previewing: ${themeName}`;
-            externalLink.href = url;
-            previewFrame.src = url;
-
-            // Make the container zone visible smoothly
-            previewZone.style.display = 'block';
-            
-            // Scroll frame into focus smoothly
-            previewZone.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    </script>
 </body>
 </html>
