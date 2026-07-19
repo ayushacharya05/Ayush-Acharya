@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +171,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 20px; /* Layout safety padding from edge */
+      padding-left: 20px;
     }
     .hero h1 {
       font-family: 'Syne', sans-serif;
@@ -447,7 +448,7 @@
       font-size: 0.95rem;
     }
 
-    /* ── CONTACT ── */
+    /* ── CONTACT (UPDATED MOBILE ENGINE) ── */
     .contact-box {
       background: linear-gradient(145deg, #111827, #0f172a);
       border: 1px solid var(--border);
@@ -480,6 +481,11 @@
     .contact-buttons .primary-btn {
       width: auto;
       max-width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      word-break: break-all;
     }
 
     /* ── FOOTER ── */
@@ -561,7 +567,7 @@
         padding: 12px 36px; 
         width: auto; 
         min-width: 160px;
-        white-space: nowrap; /* Forces text to stay in a single row */
+        white-space: nowrap;
         height: auto;
         border-radius: 50px; 
         text-align: center;
@@ -592,6 +598,15 @@
       .project-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .footer-content { flex-direction: column; text-align: center; }
+    }
+
+    /* Ultra-Responsive Mobile Contact Tweak */
+    @media (max-width: 480px) {
+      .contact-buttons .primary-btn {
+        font-size: 0.85rem;
+        padding: 14px 18px;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -675,15 +690,15 @@
 
       <div class="project-grid" id="projectGrid">
 
-              <a href="https://hydrohabit.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
+        <a href="https://hydrohabit.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
           <span class="tag">Utility</span>
           <div class="card-icon"><i class="fa fa-code"></i></div>
-          <h3>Hydro Habit -Andriod App</h3>
+          <h3>Hydro Habit -Android App</h3>
           <p>Hydro Habit is a minimalist Android app that uses clean visuals to track daily water intake and build consistent hydration routines.</p>
           <div class="btn-link">Open <i class="fas fa-arrow-right"></i></div>
         </a> 
         
-           <a href="https://amply.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Media">
+        <a href="https://amply.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Media">
           <span class="tag">Utility</span>
           <div class="card-icon"><i class="fa-solid fa-star"></i>.</div>
           <h3> Amply by Ayush Acharya</h3>
@@ -691,14 +706,13 @@
           <div class="btn-link">Download <i class="fas fa-arrow-right"></i></div>
         </a>
         
-        <a href="https://ayushacharya.info.np/projects/wordpress-themes/"_blank" rel="noopener" class="project-card reveal" data-category="Utility">
-          <span class="tag">Utiliy</span>
+        <a href="https://ayushacharya.info.np/projects/wordpress-themes/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
+          <span class="tag">Utility</span>
           <div class="card-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
           <h3>Wordpress Themes By Ayush</h3>
-          <p>An clean, modern, and professional WordPress blog theme built for writers, journalists and school and colleges</p>
+          <p>A clean, modern, and professional WordPress blog theme built for writers, journalists and school and colleges</p>
           <div class="btn-link">Open <i class="fas fa-arrow-right"></i></div>
         </a>
-     
 
         <a href="https://clearbg.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="AI">
           <span class="tag">Ai</span>
@@ -724,7 +738,6 @@
           <div class="btn-link">Read <i class="fas fa-link"></i></div>
         </a>
         
-  
         <a href="https://learn.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Media">
           <span class="tag">Education</span>
           <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -733,7 +746,6 @@
           <div class="btn-link">Learn <i class="fas fa-play"></i></div>
         </a>
 
-      
         <a href="https://noteit.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
           <span class="tag">Productivity</span>
           <div class="card-icon"><i class="fas fa-sticky-note"></i></div>
@@ -758,7 +770,7 @@
           <div class="btn-link">Code it <i class="fas fa-code"></i></div>
         </a>
 
-    <a href="https://lipiscan.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
+        <a href="https://lipiscan.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
           <span class="tag">Utility</span>
           <div class="card-icon"><i class="fa fa-code"></i></div>
           <h3>Lipi Scan</h3>
@@ -859,7 +871,7 @@
 
         projects.forEach(card => {
           const cardCategory = card.getAttribute('data-category');
-                    
+                            
           if (filterValue === 'all' || cardCategory === filterValue) {
             card.style.display = 'flex';
             card.style.animation = 'fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
