@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -492,6 +491,30 @@
       background: var(--card-hover);
     }
 
+    .card-thumb {
+      width: calc(100% + clamp(52px, 6vw, 68px));
+      margin: calc(-1 * clamp(26px, 3vw, 34px)) calc(-1 * clamp(26px, 3vw, 34px)) 22px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: var(--card-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .card-thumb img,
+    .project-card:focus-visible .card-thumb img {
+      transform: scale(1.03);
+    }
+
     .card-icon {
       font-size: 1.2rem;
       color: var(--primary);
@@ -911,24 +934,30 @@
 
         <div class="project-grid" id="projectGrid">
           <a href="https://hydrohabit.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
+            <div class="card-thumb">
+              <img src="https://raw.githubusercontent.com/ayushacharya05/Ayush-Acharya/refs/heads/main/projects/images/hydro-habit.png" alt="Hydro Habit app screenshot" loading="lazy">
+            </div>
             <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
             <h3>Hydro Habit - Android App</h3>
             <p>Hydro Habit is a minimalist Android app that uses clean visuals to track daily water intake and build consistent hydration routines.</p>
             <div class="btn-link">Open <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
           </a>
 
            <a href="https://ayushacharya.info.np/projects/wordpress-themes/" target="_blank" rel="noopener" class="project-card" data-category="Utility">
+        <div class="card-thumb">
+          <img src="https://github.com/ayushacharya05/Ayush-Acharya/blob/main/projects/images/wordpress-themes.png?raw=true" alt="WordPress Themes by Ayush screenshot" loading="lazy">
+        </div>
         <span class="tag">Utility</span>
-        <div class="card-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
         <h3>Wordpress Themes By Ayush</h3>
         <p>A clean, modern, and professional WordPress blog theme built for writers, journalists and schools/colleges.</p>
         <div class="btn-link">Open <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
       </a>
 
          <a href="https://instacode.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card" data-category="Utility">
+        <div class="card-thumb">
+          <img src="https://raw.githubusercontent.com/ayushacharya05/Ayush-Acharya/refs/heads/main/projects/images/instacode.png" alt="Insta CodE screenshot" loading="lazy">
+        </div>
         <span class="tag">Utility</span>
-        <div class="card-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
         <h3>Insta CodE</h3>
         <p>IDE designed for rapid web prototyping to eliminate the friction of traditional local setups.</p>
         <div class="btn-link">Code it <i class="fas fa-code" aria-hidden="true"></i></div>
