@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -463,42 +464,6 @@
       font-size: 0.98rem;
     }
 
-    .filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 45px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 10px 24px;
-      border-radius: 50px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--muted);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      font-family: inherit;
-    }
-
-    .filter-btn.active {
-      background: var(--text);
-      color: #ffffff;
-      border-color: var(--text);
-      box-shadow: 0 10px 25px rgba(30, 41, 59, 0.15);
-    }
-
-    .filter-btn:hover:not(.active) {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: #ffffff;
-    }
-
     .project-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -581,6 +546,34 @@
     .project-card:hover .btn-link,
     .project-card:focus-visible .btn-link {
       color: var(--primary);
+    }
+
+    .view-all-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .view-all-btn {
+      padding: 15px 38px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      background: var(--text);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(30, 41, 59, 0.12);
+      transition: var(--transition);
+    }
+
+    .view-all-btn:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 35px rgba(79, 70, 229, 0.22);
     }
 
     .services-grid {
@@ -916,43 +909,12 @@
           <p>A handpicked selection of my real-time production applications, engineering experiments, and utilities.</p>
         </div>
 
-        <div class="filter-container reveal" role="group" aria-label="Filter projects by category">
-          <button class="filter-btn active" data-filter="all" aria-pressed="true">All Work</button>
-          <button class="filter-btn" data-filter="AI" aria-pressed="false">AI Tools</button>
-          <button class="filter-btn" data-filter="Utility" aria-pressed="false">Utilities</button>
-          <button class="filter-btn" data-filter="Media" aria-pressed="false">Media</button>
-        </div>
-
         <div class="project-grid" id="projectGrid">
           <a href="https://hydrohabit.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
             <span class="tag">Utility</span>
             <div class="card-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
             <h3>Hydro Habit - Android App</h3>
             <p>Hydro Habit is a minimalist Android app that uses clean visuals to track daily water intake and build consistent hydration routines.</p>
-            <div class="btn-link">Open <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://amply.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Media">
-            <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
-            <h3>Amply by Ayush Acharya</h3>
-            <p>Browser Extension to boost your browser audio up to 600%. Clean, powerful, and beautiful.</p>
-            <div class="btn-link">Download <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://techstorenp.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
-            <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fas fa-shopping-cart" aria-hidden="true"></i></div>
-            <h3>Tech Store Nepal</h3>
-            <p>Tech Store Nepal is an electronics <br> e-commerce retailer specializing in personal wearables, mobile accessories, and premium audio technology for customers across Nepal.</p>
-            <div class="btn-link">Shop <i class="fas fa-external-link-alt" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://ayushacharya.info.np/projects/wordpress-themes/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
-            <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
-            <h3>Wordpress Themes By Ayush</h3>
-            <p>A clean, modern, and professional WordPress blog theme built for writers, journalists and school and colleges</p>
             <div class="btn-link">Open <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
           </a>
 
@@ -964,60 +926,18 @@
             <div class="btn-link">Remove BG <i class="fas fa-external-link-alt" aria-hidden="true"></i></div>
           </a>
 
-          <a href="https://mausaminfo.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
+          <a href="https://techstorenp.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
             <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fa-solid fa-cloud-sun" aria-hidden="true"></i></div>
-            <h3>Mausam Info</h3>
-            <p>Reliable weather information tool providing real-time climate updates and forecasts for locations across Nepal.</p>
-            <div class="btn-link">Open <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
+            <div class="card-icon"><i class="fas fa-shopping-cart" aria-hidden="true"></i></div>
+            <h3>Tech Store Nepal</h3>
+            <p>Tech Store Nepal is an electronics <br> e-commerce retailer specializing in personal wearables, mobile accessories, and premium audio technology for customers across Nepal.</p>
+            <div class="btn-link">Shop <i class="fas fa-external-link-alt" aria-hidden="true"></i></div>
           </a>
+        </div>
 
-          <a href="https://aajakosamachar.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Media">
-            <span class="tag">News</span>
-            <div class="card-icon"><i class="fas fa-newspaper" aria-hidden="true"></i></div>
-            <h3>Aajako Samachar</h3>
-            <p>Aggregating news from 10+ major Nepali sources in real-time for quick updates.</p>
-            <div class="btn-link">Read <i class="fas fa-link" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://learn.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Media">
-            <span class="tag">Education</span>
-            <div class="card-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
-            <h3>Learn with Ayush</h3>
-            <p>Localized IT courses and video lessons tailored for the Nepali community.</p>
-            <div class="btn-link">Learn <i class="fas fa-play" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://noteit.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
-            <span class="tag">Productivity</span>
-            <div class="card-icon"><i class="fas fa-sticky-note" aria-hidden="true"></i></div>
-            <h3>Note It</h3>
-            <p>A fast, distraction-free markdown workspace for capturing quick thoughts.</p>
-            <div class="btn-link">Open <i class="fas fa-edit" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://passportpro.ayushacharya.info.np" target="_blank" rel="noopener" class="project-card reveal" data-category="AI">
-            <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fas fa-id-card" aria-hidden="true"></i></div>
-            <h3>Passport Pro</h3>
-            <p>Smart-cropping and resizing for official government document photos.</p>
-            <div class="btn-link">Resize <i class="fas fa-crop" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://instacode.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
-            <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
-            <h3>Insta CodE</h3>
-            <p>IDE designed for rapid web prototyping to eliminate the friction of traditional local setups.</p>
-            <div class="btn-link">Code it <i class="fas fa-code" aria-hidden="true"></i></div>
-          </a>
-
-          <a href="https://lipiscan.ayushacharya.info.np/" target="_blank" rel="noopener" class="project-card reveal" data-category="Utility">
-            <span class="tag">Utility</span>
-            <div class="card-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
-            <h3>Lipi Scan</h3>
-            <p>LipiScan AI is a fast browser tool that uses on-device OCR to instantly extract Nepali and English text from scanned documents and images.</p>
-            <div class="btn-link">Open <i class="fas fa-arrow-right" aria-hidden="true"></i></div>
+        <div class="view-all-wrap reveal">
+          <a href="https://ayushacharya.info.np/projects/" class="view-all-btn">
+            View All Projects <i class="fas fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -1115,31 +1035,6 @@
           toggleMenu();
           menuToggle.focus();
         }
-      });
-
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const projects = document.querySelectorAll('.project-card');
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach((b) => {
-            b.classList.remove('active');
-            b.setAttribute('aria-pressed', 'false');
-          });
-          btn.classList.add('active');
-          btn.setAttribute('aria-pressed', 'true');
-
-          const filterValue = btn.getAttribute('data-filter');
-
-          projects.forEach((card) => {
-            const cardCategory = card.getAttribute('data-category');
-            const matches = filterValue === 'all' || cardCategory === filterValue;
-            card.style.display = matches ? 'flex' : 'none';
-            if (matches) {
-              card.style.animation = 'fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-            }
-          });
-        });
       });
 
       const reveals = document.querySelectorAll('.reveal');
